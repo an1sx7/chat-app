@@ -1,6 +1,8 @@
 const express=require("express")
 const app=express()
 const server=require("http").createServer(app)
+require('dotenv').config()
+const PORT=process.env.PORT
 const io=require("socket.io")(server)
 
 app.use(express.static("public"))
@@ -11,6 +13,6 @@ io.on("connection",socket=>{
   })
 })
 
-server.listen(3000,()=>{
+server.listen(PORT,()=>{
   console.log("running")
 })
